@@ -1,13 +1,14 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6211" systemVersion="14A298i" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="vXZ-lx-hvc">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="7702" systemVersion="14D136" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="vXZ-lx-hvc">
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6204"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7701"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <scenes>
         <!--View Controller-->
         <scene sceneID="ufC-wZ-h7g">
             <objects>
-                <viewController id="vXZ-lx-hvc" customClass="ViewController" customModuleProvider="" sceneMemberID="viewController">
+                <viewController id="vXZ-lx-hvc" customClass="ViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="jyV-Pf-zRb"/>
                         <viewControllerLayoutGuide type="bottom" id="2fi-mo-0CV"/>
@@ -15,11 +16,121 @@
                     <view key="view" contentMode="scaleToFill" id="kh9-bI-dsS">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="CD8-tj-TRJ">
+                                <rect key="frame" x="0.0" y="500" width="600" height="100"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="100" id="qAM-ix-BGj"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="25"/>
+                                <state key="normal" title="Get Started">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="startButtonPressed:" destination="vXZ-lx-hvc" eventType="touchUpInside" id="0nG-Lg-25F"/>
+                                    <segue destination="puo-R1-ObG" kind="presentation" identifier="ToInstructions" id="Q2b-b0-DDk"/>
+                                </connections>
+                            </button>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="CD8-tj-TRJ" firstAttribute="leading" secondItem="kh9-bI-dsS" secondAttribute="leadingMargin" constant="-16" id="fXH-bR-2U7"/>
+                            <constraint firstItem="2fi-mo-0CV" firstAttribute="top" secondItem="CD8-tj-TRJ" secondAttribute="bottom" id="suP-x2-DaO"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="CD8-tj-TRJ" secondAttribute="trailing" constant="-16" id="tao-IX-CPb"/>
+                        </constraints>
                     </view>
+                    <connections>
+                        <outlet property="startButton" destination="CD8-tj-TRJ" id="I1I-OD-aiy"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="x5A-6p-PRh" sceneMemberID="firstResponder"/>
             </objects>
+        </scene>
+        <!--Instruction View Controller-->
+        <scene sceneID="2H7-eG-Sbi">
+            <objects>
+                <viewController id="puo-R1-ObG" customClass="MLInstructionViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="mOl-9e-9Td"/>
+                        <viewControllerLayoutGuide type="bottom" id="YE3-el-QOX"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="Z0l-Yg-xvG" customClass="FR">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="2. Make sure there is only one face in the picture." textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Etn-aI-Ssw">
+                                <rect key="frame" x="16" y="276" width="568" height="47"/>
+                                <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="14"/>
+                                <color key="textColor" red="0.35138999360000001" green="0.72893445700000004" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Instructions" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fdA-Wa-mZe">
+                                <rect key="frame" x="16" y="166" width="568" height="47"/>
+                                <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="22"/>
+                                <color key="textColor" red="0.35138999360000001" green="0.72893445700000004" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="1. Make sure your entire face is in the picture." textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ebg-nl-Gpe">
+                                <rect key="frame" x="16" y="221" width="568" height="47"/>
+                                <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="14"/>
+                                <color key="textColor" red="0.35138999360000001" green="0.72893445700000004" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="S3l-Pf-b5h">
+                                <rect key="frame" x="0.0" y="500" width="600" height="100"/>
+                                <color key="backgroundColor" red="0.35138999360000001" green="0.72893445700000004" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="100" id="S1o-Ao-O1B"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="25"/>
+                                <state key="normal" title="Continue">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="continueButtonPressed:" destination="puo-R1-ObG" eventType="touchUpInside" id="2Mo-8P-OKT"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="fdA-Wa-mZe" firstAttribute="leading" secondItem="Z0l-Yg-xvG" secondAttribute="leadingMargin" id="0by-fU-2uy"/>
+                            <constraint firstItem="ebg-nl-Gpe" firstAttribute="trailing" secondItem="Z0l-Yg-xvG" secondAttribute="trailingMargin" id="6iZ-fP-IfH"/>
+                            <constraint firstItem="YE3-el-QOX" firstAttribute="top" secondItem="S3l-Pf-b5h" secondAttribute="bottom" id="6t7-Sd-CaW"/>
+                            <constraint firstItem="fdA-Wa-mZe" firstAttribute="trailing" secondItem="Z0l-Yg-xvG" secondAttribute="trailingMargin" id="9u7-gq-4I7"/>
+                            <constraint firstItem="Etn-aI-Ssw" firstAttribute="trailing" secondItem="Z0l-Yg-xvG" secondAttribute="trailingMargin" id="COM-Tv-zOn"/>
+                            <constraint firstItem="S3l-Pf-b5h" firstAttribute="leading" secondItem="Z0l-Yg-xvG" secondAttribute="leadingMargin" constant="-16" id="HRF-bh-u2Z"/>
+                            <constraint firstAttribute="centerY" secondItem="Etn-aI-Ssw" secondAttribute="centerY" id="IgN-eL-DX4"/>
+                            <constraint firstItem="ebg-nl-Gpe" firstAttribute="top" secondItem="fdA-Wa-mZe" secondAttribute="bottom" constant="8" id="MDm-qT-n1a"/>
+                            <constraint firstItem="Etn-aI-Ssw" firstAttribute="leading" secondItem="Z0l-Yg-xvG" secondAttribute="leadingMargin" id="Xjz-J6-ngU"/>
+                            <constraint firstItem="Etn-aI-Ssw" firstAttribute="top" secondItem="ebg-nl-Gpe" secondAttribute="bottom" constant="8" id="kzv-k4-XeC"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="S3l-Pf-b5h" secondAttribute="trailing" constant="-16" id="lHm-VU-ZMa"/>
+                            <constraint firstItem="ebg-nl-Gpe" firstAttribute="leading" secondItem="Z0l-Yg-xvG" secondAttribute="leadingMargin" id="mAr-jz-NhS"/>
+                            <constraint firstAttribute="centerX" secondItem="Etn-aI-Ssw" secondAttribute="centerX" id="mpx-da-IlZ"/>
+                        </constraints>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="xv4-1l-ZhY" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1016" y="387"/>
+        </scene>
+        <!--Camera View Controller-->
+        <scene sceneID="tWN-3R-Q2V">
+            <objects>
+                <viewController id="QTo-eA-3df" customClass="MLCameraViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="02I-1o-cYZ"/>
+                        <viewControllerLayoutGuide type="bottom" id="tg8-pp-LWS"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="3a1-0e-KPI">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="eOv-tj-zaT" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1669" y="382"/>
         </scene>
     </scenes>
 </document>

@@ -1,13 +1,13 @@
 //
 //  AppDelegate.m
-//  FaceRate
+//  LLSimpleCameraExample
 //
-//  Created by Mac Liu on 6/1/15.
-//  Copyright (c) 2015 FaceRate. All rights reserved.
+//  Created by Ömer Faruk Gül on 29/10/14.
+//  Copyright (c) 2014 Ömer Faruk Gül. All rights reserved.
 //
 
 #import "AppDelegate.h"
-#import "FaceppAPI.h"
+#import "HomeViewController.h"
 
 @interface AppDelegate ()
 
@@ -17,9 +17,15 @@
 
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
-    [FaceppAPI initWithApiKey:@"306e313c71d077fce3ce9476c9d28bf0" andApiSecret:@"tWN7FUB9l2y8p0_J1y8YGkTMAVj0hK-U"
-                    andRegion:APIServerRegionUS];
-    [FaceppAPI setDebugMode:YES];
+
+    self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
+    
+    self.homeVC = [[HomeViewController alloc] initWithNibName:nil bundle:nil];
+    UINavigationController *navVC = [[UINavigationController alloc] initWithRootViewController:self.homeVC];
+    
+    self.window.rootViewController = navVC;
+    
+    [self.window makeKeyAndVisible];
     return YES;
 }
 
