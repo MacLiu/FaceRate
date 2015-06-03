@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		2960B2B11B1E785800C4C3A6 /* iAd.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2960B2B01B1E785800C4C3A6 /* iAd.framework */; };
+		29A4EA401B1E6762007BF292 /* MLResultsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 29A4EA3F1B1E6762007BF292 /* MLResultsViewController.m */; };
 		29BF42D91B1D50DE001D9789 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 29BF42D81B1D50DE001D9789 /* main.m */; };
 		29BF42DC1B1D50DE001D9789 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 29BF42DB1B1D50DE001D9789 /* AppDelegate.m */; };
 		29BF42DF1B1D50DE001D9789 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 29BF42DE1B1D50DE001D9789 /* ViewController.m */; };
@@ -15,7 +17,6 @@
 		29BF42E71B1D50DE001D9789 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 29BF42E51B1D50DE001D9789 /* LaunchScreen.xib */; };
 		29BF42F31B1D50DE001D9789 /* FaceRateTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 29BF42F21B1D50DE001D9789 /* FaceRateTests.m */; };
 		29BF434F1B1D57F6001D9789 /* MLInstructionViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 29BF434E1B1D57F6001D9789 /* MLInstructionViewController.m */; };
-		29BF437F1B1D5E48001D9789 /* MLCameraViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 29BF437E1B1D5E48001D9789 /* MLCameraViewController.m */; };
 		29BF43B41B1D5F63001D9789 /* FaceppAPI.m in Sources */ = {isa = PBXBuildFile; fileRef = 29BF43821B1D5F62001D9789 /* FaceppAPI.m */; };
 		29BF43B51B1D5F63001D9789 /* FaceppClient.m in Sources */ = {isa = PBXBuildFile; fileRef = 29BF43851B1D5F63001D9789 /* FaceppClient.m */; };
 		29BF43B61B1D5F63001D9789 /* FaceppDetection.m in Sources */ = {isa = PBXBuildFile; fileRef = 29BF43871B1D5F63001D9789 /* FaceppDetection.m */; };
@@ -51,6 +52,9 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		2960B2B01B1E785800C4C3A6 /* iAd.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = iAd.framework; path = System/Library/Frameworks/iAd.framework; sourceTree = SDKROOT; };
+		29A4EA3E1B1E6762007BF292 /* MLResultsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MLResultsViewController.h; sourceTree = "<group>"; };
+		29A4EA3F1B1E6762007BF292 /* MLResultsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MLResultsViewController.m; sourceTree = "<group>"; };
 		29BF42D31B1D50DE001D9789 /* FaceRate.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FaceRate.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		29BF42D71B1D50DE001D9789 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		29BF42D81B1D50DE001D9789 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -66,8 +70,6 @@
 		29BF42F21B1D50DE001D9789 /* FaceRateTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FaceRateTests.m; sourceTree = "<group>"; };
 		29BF434D1B1D57F6001D9789 /* MLInstructionViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MLInstructionViewController.h; sourceTree = "<group>"; };
 		29BF434E1B1D57F6001D9789 /* MLInstructionViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MLInstructionViewController.m; sourceTree = "<group>"; };
-		29BF437D1B1D5E48001D9789 /* MLCameraViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MLCameraViewController.h; sourceTree = "<group>"; };
-		29BF437E1B1D5E48001D9789 /* MLCameraViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MLCameraViewController.m; sourceTree = "<group>"; };
 		29BF43811B1D5F62001D9789 /* FaceppAPI.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FaceppAPI.h; sourceTree = "<group>"; };
 		29BF43821B1D5F62001D9789 /* FaceppAPI.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FaceppAPI.m; sourceTree = "<group>"; };
 		29BF43841B1D5F63001D9789 /* FaceppClient.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FaceppClient.h; sourceTree = "<group>"; };
@@ -120,6 +122,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2960B2B11B1E785800C4C3A6 /* iAd.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -136,6 +139,7 @@
 		29BF42CA1B1D50DE001D9789 = {
 			isa = PBXGroup;
 			children = (
+				2960B2B01B1E785800C4C3A6 /* iAd.framework */,
 				29BF42D51B1D50DE001D9789 /* FaceRate */,
 				29BF42EF1B1D50DE001D9789 /* FaceRateTests */,
 				29BF42D41B1D50DE001D9789 /* Products */,
@@ -199,8 +203,8 @@
 				29BF42DE1B1D50DE001D9789 /* ViewController.m */,
 				29BF434D1B1D57F6001D9789 /* MLInstructionViewController.h */,
 				29BF434E1B1D57F6001D9789 /* MLInstructionViewController.m */,
-				29BF437D1B1D5E48001D9789 /* MLCameraViewController.h */,
-				29BF437E1B1D5E48001D9789 /* MLCameraViewController.m */,
+				29A4EA3E1B1E6762007BF292 /* MLResultsViewController.h */,
+				29A4EA3F1B1E6762007BF292 /* MLResultsViewController.m */,
 			);
 			name = Controllers;
 			sourceTree = "<group>";
@@ -405,7 +409,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				29BF437F1B1D5E48001D9789 /* MLCameraViewController.m in Sources */,
 				29BF43BE1B1D5F63001D9789 /* FaceppError.m in Sources */,
 				29BF43BB1B1D5F63001D9789 /* FaceppPerson.m in Sources */,
 				29BF42DF1B1D50DE001D9789 /* ViewController.m in Sources */,
@@ -419,6 +422,7 @@
 				29BF43B51B1D5F63001D9789 /* FaceppClient.m in Sources */,
 				29BF43B41B1D5F63001D9789 /* FaceppAPI.m in Sources */,
 				29BF43C11B1D5F63001D9789 /* CFilteringJSONSerializer.m in Sources */,
+				29A4EA401B1E6762007BF292 /* MLResultsViewController.m in Sources */,
 				29BF43C71B1D5F63001D9789 /* CJSONDeserializer.m in Sources */,
 				29BF43BC1B1D5F63001D9789 /* FaceppRecognition.m in Sources */,
 				29BF434F1B1D57F6001D9789 /* MLInstructionViewController.m in Sources */,
@@ -628,6 +632,7 @@
 				29BF42F81B1D50DE001D9789 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		29BF42F91B1D50DE001D9789 /* Build configuration list for PBXNativeTarget "FaceRateTests" */ = {
 			isa = XCConfigurationList;
@@ -636,6 +641,7 @@
 				29BF42FB1B1D50DE001D9789 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

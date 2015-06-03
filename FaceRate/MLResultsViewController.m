@@ -1,40 +1,35 @@
 //
-//  MLCameraViewController.m
+//  MLResultsViewController.m
 //  FaceRate
 //
-//  Created by Mac Liu on 6/1/15.
+//  Created by Mac Liu on 6/2/15.
 //  Copyright (c) 2015 FaceRate. All rights reserved.
 //
 
-#import "MLCameraViewController.h"
+#import "MLResultsViewController.h"
 #import "FaceppAPI.h"
+#import "ViewController.h"
 
-@interface MLCameraViewController () <UIImagePickerControllerDelegate, UINavigationControllerDelegate>
+@interface MLResultsViewController ()
+
+@property (retain, nonatomic) IBOutlet UIActivityIndicatorView *activityIndicator;
 
 @end
 
-@implementation MLCameraViewController
+@implementation MLResultsViewController
 
 static double GOLDEN_RATIO = 1.62;
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    self.camera = [[UIImagePickerController alloc] init];
-    self.camera.delegate = self;
-    self.camera.allowsEditing = YES;
-    self.camera.sourceType = UIImagePickerControllerSourceTypeCamera;
-    [self presentViewController:self.camera animated:NO completion:nil];
+    self.imageView.clipsToBounds = YES;
+    self.imageView.layer.cornerRadius = self.imageView.frame.size.height / 2;
+    self.imageView.image = self.image;
 }
 
-#pragma mark - UIImagePickerController
-
--(void)imagePickerController:(UIImagePickerController *)picker didFinishPickingMediaWithInfo:(NSDictionary *)info {
-    UIImage *chosenImage = info[UIImagePickerControllerEditedImage];
-    [self GetFeatures:chosenImage];
-}
-
--(void)imagePickerControllerDidCancel:(UIImagePickerController *)picker {
-    [picker dismissViewControllerAnimated:NO completion:nil];
+-(void)viewDidAppear:(BOOL)animated {
+    [super viewDidAppear:animated];
+    [self GetFeatures:self.image];
 }
 
 #pragma mark - Helper Methods
@@ -67,7 +62,8 @@ static double GOLDEN_RATIO = 1.62;
         double noseTipToLips = [[result content][@"result"][0][@"landmark"][@"mouth_upper_lip_bottom"][@"y"]doubleValue] - noseTip;
         
         int scale = [self ratioAverageIntoScale:(noseTipToChin / lipsToChin) :(noseTipToChin / pupilToNose) :(noseWidth / noseTipToLips) :(heightLips / noseWidth)];
-        
+        self.descriptionLabel.text = [NSString stringWithFormat:@"%@ %@", race, sex];
+        self.rateLabel.text = [NSString stringWithFormat:@"%i", scale];
         NSLog(@"%@",[NSString stringWithFormat:@"Gender: %@", sex]);
         NSLog(@"%@",[NSString stringWithFormat:@"Race: %@", race]);
         NSLog(@"%@", [NSString stringWithFormat:@"Your Score: %i", scale]);
@@ -75,10 +71,8 @@ static double GOLDEN_RATIO = 1.62;
 }
 
 - (int) ratioAverageIntoScale:(double)calc1 :(double)calc2 :(double)calc3 :(double)calc4 {
-    
     double averagePercentErrors = ([self percentError:calc1] +[self percentError:calc2] + [self percentError:calc3] + [self percentError:calc4]) / 4;
     int rank = round(averagePercentErrors * 10);
-    NSLog(@"%i",rank);
     return rank;
 }
 
@@ -87,5 +81,30 @@ static double GOLDEN_RATIO = 1.62;
     return 1 - (numerator / GOLDEN_RATIO);
 }
 
+- (void)dealloc {
+    [_imageView release];
+    [_descriptionLabel release];
+    [_rateLabel release];
+    [_activityIndicator release];
+    [super dealloc];
+}
 
+- (IBAction)doneButtonPressed:(UIButton *)sender {
+}
+
+#pragma mark iAd delegate Methods
+
+-(void)bannerViewDidLoadAd:(ADBannerView *)banner {
+    [UIView beginAnimations:nil context:nil];
+    [UIView setAnimationDuration:1];
+    [banner setAlpha:1];
+    [UIView commitAnimations];
+}
+
+-(void)bannerView:(ADBannerView *)banner didFailToReceiveAdWithError:(NSError *)error { [UIView beginAnimations:nil context:nil];
+    [UIView setAnimationDuration:1];
+    [banner setAlpha:0];
+    [UIView commitAnimations];
+    
+}
 @end
