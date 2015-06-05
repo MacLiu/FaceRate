@@ -13,6 +13,7 @@
 @interface MLInstructionViewController () <UIImagePickerControllerDelegate, UINavigationControllerDelegate>
 
 @property (strong, nonatomic) UIImage *image;
+@property (retain, nonatomic) IBOutlet UIButton *continueButton;
 
 @end
 
@@ -24,6 +25,8 @@
     self.camera.delegate = self;
     self.camera.allowsEditing = YES;
     self.camera.sourceType = UIImagePickerControllerSourceTypeCamera;
+    self.view.backgroundColor = [UIColor colorWithRed:46/255.0 green:159/255.0 blue:226/255.0 alpha:1.0];
+    [self.continueButton setTitleColor:[UIColor colorWithRed:46/255.0 green:159/255.0 blue:226/255.0 alpha:1.0] forState:UIControlStateNormal];
 }
 
 #pragma mark - UIImagePickerController
@@ -49,4 +52,8 @@
     }
 }
 
+- (void)dealloc {
+    [_continueButton release];
+    [super dealloc];
+}
 @end

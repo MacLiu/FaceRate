@@ -14,6 +14,11 @@
 @interface MLResultsViewController ()
 
 @property (retain, nonatomic) IBOutlet UIActivityIndicatorView *activityIndicator;
+@property (retain, nonatomic) IBOutlet UILabel *processLabel;
+@property (retain, nonatomic) IBOutlet UIButton *fbButton;
+@property (retain, nonatomic) IBOutlet UIButton *twitButton;
+@property (retain, nonatomic) IBOutlet UIButton *doneButton;
+@property (strong, nonatomic) NSData *imageData;
 
 @end
 
@@ -24,10 +29,31 @@ SLComposeViewController *mySLComposerSheet;
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    
+    self.view.backgroundColor = [UIColor colorWithRed:46/255.0 green:159/255.0 blue:226/255.0 alpha:1.0];
+    
     self.imageView.clipsToBounds = YES;
     self.imageView.layer.cornerRadius = self.imageView.frame.size.height / 2;
     self.imageView.image = self.image;
+    self.imageView.layer.borderWidth = 5.0f;
+    self.imageView.layer.borderColor = [UIColor colorWithWhite:1.0f alpha:1.0f].CGColor;
+    
+    self.doneButton.layer.cornerRadius = 8.0;
+    self.doneButton.clipsToBounds = YES;
+    [self.doneButton setTitleColor:[UIColor colorWithRed:46/255.0 green:159/255.0 blue:226/255.0 alpha:1.0] forState:UIControlStateNormal];
+    self.fbButton.layer.cornerRadius = 8.0;
+    self.fbButton.clipsToBounds = YES;
+    self.twitButton.layer.cornerRadius = 8.0;
+    self.twitButton.clipsToBounds = YES;
+    
     [self.activityIndicator startAnimating];
+    [[UIApplication sharedApplication] beginIgnoringInteractionEvents];
+
+}
+
+-(void)viewWillAppear:(BOOL)animated {
+    [super viewWillAppear:animated];
+    self.imageData = UIImageJPEGRepresentation(self.image, 100);
 }
 
 -(void)viewDidAppear:(BOOL)animated {
@@ -38,10 +64,10 @@ SLComposeViewController *mySLComposerSheet;
 #pragma mark - Helper Methods
 
 - (void) GetFeatures:(UIImage *)image {
-    NSData *imageData = UIImageJPEGRepresentation(image, 100);
     FaceppResult *detect = [[FaceppAPI detection] detectWithURL:nil
-                                                    orImageData:imageData];
+                                                    orImageData:self.imageData];
     if ([[detect content][@"face"] count] == 0) {
+        [[UIApplication sharedApplication] endIgnoringInteractionEvents];
         UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"There was an error!!!" message:@"Please make sure you followed the instructions" delegate:nil cancelButtonTitle:@"Ok" otherButtonTitles: nil];
         [alert show];
         [self performSegueWithIdentifier:@"ToMain" sender:nil];
@@ -75,8 +101,11 @@ SLComposeViewController *mySLComposerSheet;
         double noseTipToLips = [[result content][@"result"][0][@"landmark"][@"mouth_upper_lip_bottom"][@"y"]doubleValue] - noseTip;
         
         int scale = [self ratioAverageIntoScale:(noseTipToChin / lipsToChin) :(noseTipToChin / pupilToNose) :(noseWidth / noseTipToLips) :(heightLips / noseWidth)];
-        
+       
+        [[UIApplication sharedApplication] endIgnoringInteractionEvents];
         [self.activityIndicator stopAnimating];
+        self.processLabel.text = @"";
+        
         self.descriptionLabel.text = [NSString stringWithFormat:@"%@ %@", race, sex];
         self.rateLabel.text = [NSString stringWithFormat:@"%i", scale];
       
@@ -99,6 +128,10 @@ SLComposeViewController *mySLComposerSheet;
     [_descriptionLabel release];
     [_rateLabel release];
     [_activityIndicator release];
+    [_fbButton release];
+    [_twitButton release];
+    [_doneButton release];
+    [_processLabel release];
     [super dealloc];
 }
 
@@ -120,7 +153,7 @@ SLComposeViewController *mySLComposerSheet;
     {
         mySLComposerSheet = [SLComposeViewController composeViewControllerForServiceType:SLServiceTypeFacebook];
         [mySLComposerSheet addImage:self.image];
-        [mySLComposerSheet setInitialText:[NSString stringWithFormat:@"FaceRate said I was a/an %@, and rated me a %@ on a scale of 1 to 10!", self.descriptionLabel.text, self.rateLabel.text]];
+        [mySLComposerSheet setInitialText:[NSString stringWithFormat:@"FaceRate said I was a/an %@, and rated me a %@ on a scale of 1 to 10! Go download FaceRate in the App Store to see what you get!", self.descriptionLabel.text, self.rateLabel.text]];
         [mySLComposerSheet setEditing:NO];
         [self presentViewController:mySLComposerSheet animated:YES completion:nil];
     }

@@ -39,6 +39,9 @@
 		29BF43C71B1D5F63001D9789 /* CJSONDeserializer.m in Sources */ = {isa = PBXBuildFile; fileRef = 29BF43AE1B1D5F63001D9789 /* CJSONDeserializer.m */; };
 		29BF43C81B1D5F63001D9789 /* CJSONScanner.m in Sources */ = {isa = PBXBuildFile; fileRef = 29BF43B01B1D5F63001D9789 /* CJSONScanner.m */; };
 		29BF43C91B1D5F63001D9789 /* CJSONSerializer.m in Sources */ = {isa = PBXBuildFile; fileRef = 29BF43B21B1D5F63001D9789 /* CJSONSerializer.m */; };
+		29F8974F1B2137EB00DCB0BF /* ocean.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 29F8974E1B2137EB00DCB0BF /* ocean.jpg */; };
+		29F897521B2141EA00DCB0BF /* facebook.png in Resources */ = {isa = PBXBuildFile; fileRef = 29F897501B2141EA00DCB0BF /* facebook.png */; };
+		29F897531B2141EA00DCB0BF /* twitter.png in Resources */ = {isa = PBXBuildFile; fileRef = 29F897511B2141EA00DCB0BF /* twitter.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -115,6 +118,9 @@
 		29BF43B11B1D5F63001D9789 /* CJSONSerializer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CJSONSerializer.h; sourceTree = "<group>"; };
 		29BF43B21B1D5F63001D9789 /* CJSONSerializer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CJSONSerializer.m; sourceTree = "<group>"; };
 		29BF43B31B1D5F63001D9789 /* JSONRepresentation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JSONRepresentation.h; sourceTree = "<group>"; };
+		29F8974E1B2137EB00DCB0BF /* ocean.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = ocean.jpg; sourceTree = "<group>"; };
+		29F897501B2141EA00DCB0BF /* facebook.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = facebook.png; sourceTree = "<group>"; };
+		29F897511B2141EA00DCB0BF /* twitter.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = twitter.png; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -139,6 +145,7 @@
 		29BF42CA1B1D50DE001D9789 = {
 			isa = PBXGroup;
 			children = (
+				29F897541B21498800DCB0BF /* Images */,
 				2960B2B01B1E785800C4C3A6 /* iAd.framework */,
 				29BF42D51B1D50DE001D9789 /* FaceRate */,
 				29BF42EF1B1D50DE001D9789 /* FaceRateTests */,
@@ -309,6 +316,16 @@
 			path = JSON;
 			sourceTree = "<group>";
 		};
+		29F897541B21498800DCB0BF /* Images */ = {
+			isa = PBXGroup;
+			children = (
+				29F897501B2141EA00DCB0BF /* facebook.png */,
+				29F897511B2141EA00DCB0BF /* twitter.png */,
+				29F8974E1B2137EB00DCB0BF /* ocean.jpg */,
+			);
+			name = Images;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -391,6 +408,9 @@
 			files = (
 				29BF42E21B1D50DE001D9789 /* Main.storyboard in Resources */,
 				29BF42E71B1D50DE001D9789 /* LaunchScreen.xib in Resources */,
+				29F897521B2141EA00DCB0BF /* facebook.png in Resources */,
+				29F897531B2141EA00DCB0BF /* twitter.png in Resources */,
+				29F8974F1B2137EB00DCB0BF /* ocean.jpg in Resources */,
 				29BF42E41B1D50DE001D9789 /* Images.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
