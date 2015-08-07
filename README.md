@@ -1,0 +1,2 @@
+# FaceRate
+Mobile app that rates users from a 1-10 scale based off of their facial features. This app uses a facial recognition API (Face++) that extracted landmarks and facial key-points from an image. Using these, I was able to develop my own algorithm to calculate the ratios and symmetry of the face and determined how far off that was from the Golden Ratio. The app won best mobile app at the event. 
